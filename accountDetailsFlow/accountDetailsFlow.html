@@ -1,0 +1,20 @@
+<template>
+    <c-progress-indicator></c-progress-indicator>
+    <lightning-record-edit-form if:true={hide}>
+        <lightning-radio-group name="radioGroup"
+                          label="Acount Type"
+                          options={options}
+                          value={value}
+                          type="radio"
+                          class="validate" onchange={handleType} required ></lightning-radio-group>
+                <lightning-input   type="number" label="Routing Number" name="routing" onchange={handleRouting} required 
+                  ></lightning-input>
+                 <lightning-input class="validate" type="number" label="Account Number" name="account" onchange={handleAccount} required 
+                  ></lightning-input>
+                 <lightning-input  class="validate" type="number" label="Confrim Account Number"  onchange={handleConfim} required 
+                  ></lightning-input>
+                  {matches}
+                 
+                 <lightning-button class="validate" label="Confirm Account Details" variant="brand" type="submit" onclick={nextConfirm}></lightning-button>
+    </lightning-record-edit-form>
+</template>

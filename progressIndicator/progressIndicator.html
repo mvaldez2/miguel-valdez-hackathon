@@ -1,0 +1,11 @@
+<template>
+    <lightning-progress-indicator type="path" current-step={selectedStep}>
+        <lightning-progress-step label="Acount Details" value="step1"
+        onstepfocus={selectAccount}>
+        </lightning-progress-step>
+        <lightning-progress-step label="Confirm Account" value="step2" onstepfocus={selectConfirm}>
+        </lightning-progress-step >
+        <lightning-progress-step label="What's Next" value="step3">
+        </lightning-progress-step>
+    </lightning-progress-indicator>
+</template>

@@ -1,0 +1,2 @@
+I had trouble with the flow and the navigation so most of the functioning code is in the accountDetails folder
+Than the other folders (accountConfirm, accoundDetailsFlow and progressIndicator) are for the flow

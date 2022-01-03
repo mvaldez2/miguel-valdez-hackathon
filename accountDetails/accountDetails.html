@@ -1,0 +1,63 @@
+<template>
+    <lightning-layout horizontal-align="center" multiple-rows="true"> 
+        <lightning-layout-item
+        flexibility="grow"
+        size="12"
+        small-device-size="6"
+        medium-device-size="6"
+        large-device-size="6"
+        >
+        <lightning-progress-indicator type="path" current-step={selectedStep}>
+            <lightning-progress-step label="Acount Details" value="step1">
+            </lightning-progress-step>
+            <lightning-progress-step label="Confirm Account" value="step2">
+            </lightning-progress-step >
+            <lightning-progress-step label="What's Next" value="step3">
+            </lightning-progress-step>
+        </lightning-progress-indicator>
+    
+        <lightning-record-edit-form if:true={hide}>
+            <lightning-radio-group name="radioGroup"
+                              label="Acount Type"
+                              options={options}
+                              value={value}
+                              type="radio"
+                              class="validate" onchange={handleType} required ></lightning-radio-group>
+                    <lightning-input   type="number" label="Routing Number" name="routing" onchange={handleRouting} required 
+                      ></lightning-input>
+                     <lightning-input class="validate" type="number" label="Account Number" name="account" onchange={handleAccount} required 
+                      ></lightning-input>
+                     <lightning-input  class="validate" type="number" label="Confrim Account Number"  onchange={handleConfim} required 
+                      ></lightning-input>
+                      {matches}
+                     
+                     <lightning-button class="validate" label="Confirm Account Details" variant="brand" type="submit" onclick={nextConfirm}></lightning-button>
+        </lightning-record-edit-form>
+    
+    
+    
+        <lightning-card if:true={show}>
+           <p> Routing Number: {routing} </p> 
+           <p> Bank Name: Bank Name</p>
+           <p> Account: Number {account}</p>
+           <p> Account Type: {value}</p>
+           Agreement
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi malesuada ante ac metus placerat aliquet. Vestibulum eget dolor nulla. Nam nibh est, maximus et pharetra ac, laoreet tincidunt nulla. Sed finibus lacus id leo faucibus hendrerit. Vivamus congue fermentum elementum. Duis nec tellus placerat, fringilla risus in, malesuada sapien. Morbi tempor dignissim est, et congue nulla venenatis id. Aliquam egestas, sem in ultrices gravida, mi magna consectetur sapien, a dictum nunc sapien vestibulum lorem. Pellentesque venenatis turpis vel diam suscipit consequat. Mauris mollis, risus a eleifend varius, enim mi congue felis, vel sollicitudin est sapien vitae arcu. Praesent tincidunt, leo ac condimentum laoreet, diam diam dapibus urna, sit amet placerat neque sem eu lacus. Sed augue lacus, elementum in ante a, mollis efficitur enim. Quisque eu arcu mauris. Praesent id orci id nunc maximus pharetra. Etiam interdum urna diam, ut venenatis elit molestie sit amet. </p>
+           <lightning-input
+            type="checkbox"
+           onchange={handleCheck}>
+    
+           </lightning-input>
+           
+           <lightning-button label="Edit Account" onclick={backAccount}></lightning-button>
+           <lightning-button label="Add Account" disabled={isDisabled} onclick={addAccount}></lightning-button>
+        </lightning-card>
+    
+        <lightning-card if:true={done}>
+            Account Added!
+         </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+
+   
+</template>
